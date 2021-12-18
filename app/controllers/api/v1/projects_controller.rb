@@ -1,8 +1,11 @@
 class Api::V1::ProjectsController < ApplicationController
   def index
-    @project = Project.all
-
-    render json: @project
+    @projects = Project.all
+    fields = {}
+    @projects.each do |project|
+      fields = fields.reverse_merge!(Fields.build(project))
+    end
+    render json: fields
   end
 
   def show
@@ -47,6 +50,7 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   private
+
   def project_params
     params.require(:project).permit(:title, :body)
   end
