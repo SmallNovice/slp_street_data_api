@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_project_name: MyString
+  project_level: MyString
+  last_project_name: MyString
+  department: one
+
+two:
+  current_project_name: MyString
+  project_level: MyString
+  last_project_name: MyString
+  department: two
