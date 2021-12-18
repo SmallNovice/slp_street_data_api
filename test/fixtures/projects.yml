@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_project_name: MyString
+  project_level: 1
+  current_year: 1
+  current_number: 1
+  before_last_year: 1
+  before_last_year_number: 1
+  last_year_number: 1
+  last_year_number_number: 1
+  category: one
+
+two:
+  current_project_name: MyString
+  project_level: 1
+  current_year: 1
+  current_number: 1
+  before_last_year: 1
+  before_last_year_number: 1
+  last_year_number: 1
+  last_year_number_number: 1
+  category: two
