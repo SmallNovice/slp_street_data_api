@@ -1,24 +1,35 @@
 class Api::V1::ProjectsController < ApplicationController
+  before_action :department_to_project, only: [:index, :show,:create, :update, :destroy]
   before_action :find_project, only: [:show, :update, :destroy]
 
-  def index
-    @projects = Project.all
+  def all_data
+    projects = Project.all
     fields =
-      @projects.each_with_object([]) do |project, memo|
+      projects.each_with_object([]) do |project, memo|
         memo << Fields.build(project)
       end
     render json: fields
   end
 
-  def show
-    field = Fields.build(@project)
+  def specify_data
+    project = Project.find(params[:id])
+    field = Fields.build(project)
 
     render json: field
   end
 
+  def index
+    @projects = @category.projects
+
+    render json: @projects
+  end
+
+  def show
+    render json: @project
+  end
+
   def create
-    @project = Project.new(project_params)
-    if @project.save
+    if @project = @category.projects.create(project_params)
       render json: @project
     else
       render json: { message: 'unable to create project' }, status: 400
@@ -51,7 +62,11 @@ class Api::V1::ProjectsController < ApplicationController
                   :category_id)
   end
 
+  def department_to_project
+    @category = Department.find(params[:department_id]).categories.find(params[:category_id])
+  end
+
   def find_project
-    @project = Project.find(params[:id])
+    @project = @category.projects.find(params[:id])
   end
 end
