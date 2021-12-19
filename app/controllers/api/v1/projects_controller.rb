@@ -1,10 +1,10 @@
 class Api::V1::ProjectsController < ApplicationController
   def index
     @projects = Project.all
-    fields = {}
-    @projects.each do |project|
-      fields = fields.reverse_merge!(Fields.build(project))
-    end
+    fields =
+      @projects.each_with_object([]) do |project, memo|
+        memo << Fields.build(project)
+      end
     render json: fields
   end
 
