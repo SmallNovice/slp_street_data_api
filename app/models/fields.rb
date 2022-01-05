@@ -5,6 +5,12 @@ class Fields
         'department_id' => project.category.department.id,
         'department_name' => project.category.department.department_name
       },
+      'level' => {
+        'current_project_name' => project.category.current_project_name,
+        'project_level' => project.category.project_level,
+        'last_project_name' => project.category.last_project_name,
+        'department_id' => project.category.department_id
+      },
       'project' => build_project_name(project).merge(other_project_hash(project)),
       'quarter_tables' => project.quarter_tables
     }
