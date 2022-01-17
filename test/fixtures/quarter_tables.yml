@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_year: 1
+  first_quarter: MyString
+  second_quarter: MyString
+  third_quarter: MyString
+  curruent_month: 1
+  project: one
+
+two:
+  current_year: 1
+  first_quarter: MyString
+  second_quarter: MyString
+  third_quarter: MyString
+  curruent_month: 1
+  project: two
